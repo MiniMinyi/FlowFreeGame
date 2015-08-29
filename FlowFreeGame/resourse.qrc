@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="flowfree">resource/FlowFreeTitle.png</file>
+        <file alias="about">resource/AboutTitle.png</file>
+        <file alias="music">resource/Music-icon.png</file>
+        <file alias="sound">resource/Sound-icon.png</file>
+        <file alias="musicoff">resource/Music-off-icon.png</file>
+        <file alias="bgpicture">resource/bgpicture.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file alias="music">resource/Schubert.wav</file>
+        <file>resource/connected.wav</file>
+        <file>resource/leak.wav</file>
+    </qresource>
+    <qresource prefix="/file">
+        <file>resource/settings/five1.txt</file>
+        <file>resource/settings/five2.txt</file>
+        <file>resource/settings/seven1.txt</file>
+        <file>resource/settings/seven2.txt</file>
+        <file>resource/settings/six1.txt</file>
+        <file>resource/settings/six2.txt</file>
+        <file>resource/settings/filelist.txt</file>
+    </qresource>
+</RCC>

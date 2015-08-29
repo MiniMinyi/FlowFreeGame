@@ -1,0 +1,41 @@
+初始化：
+    颜色数量 colorNum 是否连通 isConnected[20]
+    布局大小size 布局左上角点sx sy 布局正方形边长r 圈圈分布记录square[i][j]
+    isPress = false; px = py = -1; cpx = cpy = -1; moveColor = -1;
+         位置偏差 ex = 10; ey = 10; er = - 15;
+    pineRecord所有颜色的vector清空；pineMap全部置为0；
+    isSetColor[7]={false}
+	
+	
+1.鼠标按下
+  if 当前位置有圈圈
+	isPress = true; moveColor = 圈圈color;
+	(cpx,cpy)记录光标位置；
+	(px,py)记录当前位置；对应颜色的vector清空，加入该点对；
+	isSetColor[color] = false;
+  if 当前位置有管道
+	isPress = true; moveColor = 管道color;
+	（cpx,cpy)记录光标位置；
+	（px,py)记录当前位置；当前位置对应vector删掉该点及之后的所有点对；
+	管道map中删除的点对中对应的点清零。
+	isSetColor[color] = false;
+2.鼠标move
+  if isPress
+	if 当前位置为(px,py)  
+	 	(cpx,cpy)记录光标位置
+	if 当前位置为(px,py)的上下左右 && 在布局内 && 没有圈圈
+	 		(cpx,cpy)记录光标位置；颜色对应vector加入点对；
+	  		(px,py)更改为当前位置； 
+		if 有管道
+			该管道处的颜色vector删除该点及之后的所有点对；
+	否则 isPress = false
+3.鼠标release
+  if isPress
+	isSetColor[moveColor] = true;
+	isPress = false;
+	moveColor = -1;
+
+画画：  1.布局数组layout，开始位置(sx,sy),正方形边长r，画圆开始位置偏移ex ey,半径大小差距er,存在playWidget里，以这些数据画方格和圆圈。
+	2.if (isPress) 用moveColor画一个以r为直径，光标所在位置为圆心的略透明的圆。
+	3.遍历管道数组，设置参数，用点对画管道。
+	4.将管道方格为true的管道vector中所有的点所在方格设置对应背景色。
